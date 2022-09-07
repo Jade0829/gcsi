@@ -1,0 +1,19 @@
+apiVersion: kadalu-operator.storage/v1alpha1
+kind: KadaluStorage
+metadata:
+  name: gluster-vol
+spec:
+  type: External
+  kadalu_format: native
+  details:
+    gluster_hosts: [gluster-1,gluster-2]
+    gluster_volname: k8s-pv1
+    gluster_options: log-level=DEBUG
+
+
+
+
+
+
+
+

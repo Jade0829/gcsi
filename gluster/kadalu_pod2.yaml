@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-ext
+  labels:
+    app: sample-app
+spec:
+  containers:
+  - name: sample-app2
+    image: bibe0829/lb2pba_query_agent
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - mountPath: "/mnt/pv"
+      name: csivol
+  volumes:
+  - name: csivol
+    persistentVolumeClaim:
+      claimName: gluster-vol-2
+

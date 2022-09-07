@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) Arm Limited and Contributors
+# Copyright (c) Intel Corporation
+kind: Pod
+apiVersion: v1
+metadata:
+  name: gluesyscsi-test
+spec:
+  containers:
+  - name: test 
+    image: ubuntu
+    imagePullPolicy: "IfNotPresent"
+    command: ["sleep", "365d"]
+    volumeMounts:
+    - mountPath: "/gluesysvol"
+      name: gluesys-volume
+  volumes:
+  - name: gluesys-volume
+    persistentVolumeClaim:
+      claimName: gcsi-pvc

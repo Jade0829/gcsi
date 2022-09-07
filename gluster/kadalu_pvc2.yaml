@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: gluster-vol-2
+spec:
+  storageClassName: kadalu.gluster-vol
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 300Mi

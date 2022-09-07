@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-ext3
+  labels:
+    app: sample-app
+spec:
+  containers:
+  - name: sample-app
+    image: ubuntu
+    command: ['sleep','180']
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - mountPath: "/mnt/pv"
+      name: csivol
+  volumes:
+  - name: csivol
+    persistentVolumeClaim:
+      claimName: gluster-vol-1
+
